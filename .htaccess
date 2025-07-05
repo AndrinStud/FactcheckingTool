@@ -1,0 +1,22 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type"
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+
+RewriteEngine On
+
+# 1. /eck → main.php anzeigen
+RewriteRule ^eck$ sites/main.php [L]
+
+# 2. Weiterleitung von fakten.ch auf fakten.ch/eck
+RewriteRule ^$ /eck [R=302,L]
+
+# 3. /eck-{string} (nur Buchstaben) → article.php?id={string}
+RewriteRule ^eck-([a-zA-Z]+)$ sites/article.php?id=$1 [L]
+
+# 4. /eck-{zahl} (nur Zahlen) → fact.php?id={zahl}
+RewriteRule ^eck-([0-9]+)$ sites/fact.php?id=$1 [L]
