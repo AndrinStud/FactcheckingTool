@@ -16,6 +16,7 @@
     CREATE TABLE site (
         id CHAR(36) DEFAULT (UUID()) PRIMARY KEY,
         name VARCHAR(255) NOT NULL UNIQUE,
+        video VARCHAR(255) NOT NULL UNIQUE,
         shortenend_name_url VARCHAR(255) NOT NULL UNIQUE,
         creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -52,14 +53,12 @@
     ('Zitat'),
     ('Korrekt'),
     ('Falsch'),
-    ('Teilweise korrekt'),
-    ('Eher falsch'),
     ('Information'),
     ('Nicht überprüfbar');
 
-    INSERT INTO site (name, shortenend_name_url)
+    INSERT INTO site (name, video, shortenend_name_url)
     VALUES 
-    ('SRF Arena zur Umweltverantwortungsinitiative', 'umweltverantwortungsinitiative');
+    ('SRF Arena zur Umweltverantwortungsinitiative', 'http://youtube.com/watch?v=yJ_09URZdPU', 'umweltverantwortungsinitiative');
 
     INSERT INTO person (name, picture)
     VALUES 
