@@ -67,7 +67,7 @@ class Factchecker {
                 }
     
                 if ((currentTime >= fact.video_timestamp_end && currentTime < fact.video_timestamp_end + 1000) || (currentTime >= fact.video_timestamp_end && clear)) {
-                    this.showFact(fact.name, fact.comment);
+                    this.showFact(fact.name, fact.comment, fact.picture);
                     this.currentFacts.push(fact);
                 }
             }
@@ -79,9 +79,14 @@ class Factchecker {
         this.currentFacts = [];
     }
 
-    showFact(type, text) {
+    showFact(type, text, personPicture) {
         let accountProfilePicture = document.createElement('img');
         accountProfilePicture.src = '../images/' + type + '.png';
+
+        if (personPicture) {
+            accountProfilePicture.src = 'data:image/jpeg;base64,' + personPicture;
+        }
+
         let comment = document.createElement('span');
 
         // Detect links in the text and convert them to <a> elements

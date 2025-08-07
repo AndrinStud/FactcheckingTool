@@ -11,9 +11,10 @@ if (!$site) {
 }
 $site_id = $site['id'];
 
-$stmt = $pdo->query("SELECT a.name, f.comment, f.video_timestamp_end 
+$stmt = $pdo->query("SELECT a.name, p.picture, f.comment, f.video_timestamp_end 
                       FROM fact f 
                       JOIN account a ON f.account = a.id 
+                      LEFT JOIN person p ON f.quote_by = p.id
                       WHERE f.site='" . $site_id . "'");
 $facts = $stmt->fetchAll();
 ?>

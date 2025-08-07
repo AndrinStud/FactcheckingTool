@@ -61,4 +61,71 @@
         'Bei der Luftqualität ist die Aussage falsch. Die Schweiz lag laut EPI im Jahr 2024 auf Platz 17 in der Luftverschmutzung.',
         NULL, 302006
     );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://epi.yale.edu/measure/2024/UWD'
+    );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://www.earthdata.nasa.gov/data/catalog?keyword=epi'
+    );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://www.srf.ch/sendungen/kassensturz-espresso/kassensturz/trinkwasser-verschmutzung-viele-kantone-wollen-nicht-sagen-wo-trinkwasser-belastet-ist'
+    );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://web.archive.org/web/20250126031432/https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung/familien/haushalte.html'
+    );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://www.srf.ch/news/schweiz/eu-bericht-zur-wasserqualitaet-qualitaet-der-schweizer-badegewaesser-liegt-unter-eu-durchschnitt'
+    );
+    INSERT INTO source (fact, link)
+    VALUES(
+        (SELECT id FROM fact WHERE video_timestamp_end=302000),
+        'https://www.srf.ch/news/schweiz/gefaehrdeter-lebensraum-vielen-schweizer-baechen-geht-es-schlecht'
+    );
+
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Aussage'),
+        (SELECT id FROM person WHERE name='Albert Rösti'),
+        'Wir müssten in den Bereichen Wohnen, Essen, Mobilität unseren Konsum in 10 Jahren um zwei Drittel reduzieren.',
+        399000, 410000
+    );
+
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Aussage'),
+        (SELECT id FROM person WHERE name='Albert Rösti'),
+        'Mit dem Klima- und Innovationsgesetz, dem neuen C02-Gesetz, dem Gesetz zur Kreislaufwirtschaft und dem Gesetz zur nachhaltigen Stromversorgung werden sehr viele mit der Wirtschaft und dem technischen Fortschritt verträgliche Schritte zum Umweltschutz gemacht.',
+        684000, 720000
+    );
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Information'),
+        NULL,
+        'Rösti bezieht sich auf folgende Gesetze:',
+        NULL, 720002
+    );
+
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Aussage'),
+        (SELECT id FROM person WHERE name='Magdalena Erni'),
+        'Der Klimawandel fordert in der Schweiz jährlich tausende von Menschenleben pro Jahr',
+        757000, 763000
+    );
+
+
 -- ////////////////////////////////////////////////////
