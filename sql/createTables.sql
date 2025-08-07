@@ -16,14 +16,15 @@
     CREATE TABLE site (
         id CHAR(36) DEFAULT (UUID()) PRIMARY KEY,
         name VARCHAR(255) NOT NULL UNIQUE,
-        video VARCHAR(255) NOT NULL UNIQUE,
+        video_id VARCHAR(255) NOT NULL UNIQUE,
         shortenend_name_url VARCHAR(255) NOT NULL UNIQUE,
+        description TEXT,
         creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 
     CREATE TABLE person (
         id CHAR(36) DEFAULT (UUID()) PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL UNIQUE,
         picture TEXT NOT NULL,
         creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -34,15 +35,8 @@
         account CHAR(36) NOT NULL REFERENCES account(id),
         quote_by CHAR(36) NOT NULL REFERENCES person(id),
         comment VARCHAR(200) NOT NULL,
-        video_timestamp_start INTEGER NOT NULL,
+        video_timestamp_start INTEGER,
         video_timestamp_end INTEGER NOT NULL,
-        creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-
-    CREATE TABLE source (
-        id CHAR(36) DEFAULT (UUID()) PRIMARY KEY,
-        fact INTEGER NOT NULL REFERENCES fact(id),
-        link VARCHAR(255) NOT NULL,
         creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
 -- ////////////////////////////////////////////////////
@@ -50,15 +44,14 @@
 -- Tabellen befüllen
     INSERT INTO account (name)
     VALUES 
-    ('Zitat'),
+    ('Aussage'),
     ('Korrekt'),
     ('Falsch'),
-    ('Information'),
-    ('Nicht überprüfbar');
+    ('Information');
 
-    INSERT INTO site (name, video, shortenend_name_url)
+    INSERT INTO site (name, video_id, shortenend_name_url, description)
     VALUES 
-    ('SRF Arena zur Umweltverantwortungsinitiative', 'http://youtube.com/watch?v=yJ_09URZdPU', 'umweltverantwortungsinitiative');
+    ('SRF Arena zur Umweltverantwortungsinitiative', 'yJ_09URZdPU', 'umweltverantwortungsinitiative', 'Mit der Umweltverantwortungsinitiative sollen Bund und Kantone dafür sorgen, dass die Umweltbelastung durch Konsum die planetaren Grenzen entsprechend dem weltweiten Bevölkerungsanteil der Schweiz nicht mehr überschreitet. Dieses Ziel muss laut Initiantinnen und Initianten innerhalb von zehn Jahren erreicht sein. Dazu soll die Umsetzung sozialverträglich sein. Mit welchen Massnahmen die Initiative umgesetzt werden soll, ist offen. Gegnerinnen und Gegner befürchten eine Schwächung der Schweizer Wirtschaft und warnen vor zahlreichen neuen Vorschriften und Verboten.');
 
     INSERT INTO person (name, picture)
     VALUES 

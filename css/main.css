@@ -1,0 +1,62 @@
+@import url('https://use.typekit.net/ayg5bwm.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'proxima-nova', sans-serif;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+header img {
+    height: 10vh;
+    margin-right: 4vh;
+}
+
+header h1 {
+    font-size: 5vh;
+}
+
+hr {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.videoList {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.videoList ul {
+    list-style: none;
+}
+
+hr {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+
+.footerBottom {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+footer i {
+    font-size: 3vh;
+    margin-right: 4vh;
+    margin-bottom: 3vh;
+    color: black;
+}
