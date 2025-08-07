@@ -5,6 +5,10 @@ $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 $id = $_GET['id'] ?? '';
 $stmt = $pdo->query("SELECT id, name, description, video_id FROM site WHERE shortenend_name_url='$id'");
 $site = $stmt->fetch();
+if (!$site) {
+    header("Location: http://1fakten.ch/eck");
+    exit;
+}
 $site_id = $site['id'];
 
 $stmt = $pdo->query("SELECT a.name, f.comment, f.video_timestamp_end 

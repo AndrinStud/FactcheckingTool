@@ -33,7 +33,7 @@
         id INTEGER AUTO_INCREMENT PRIMARY KEY,
         site CHAR(36) NOT NULL REFERENCES site(id),
         account CHAR(36) NOT NULL REFERENCES account(id),
-        quote_by CHAR(36) NOT NULL REFERENCES person(id),
+        quote_by CHAR(36) REFERENCES person(id),
         comment VARCHAR(200) NOT NULL,
         video_timestamp_start INTEGER,
         video_timestamp_end INTEGER NOT NULL,
