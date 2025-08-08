@@ -68,7 +68,7 @@
 </head>
 <body>
     <header>
-        <img src="../images/Faktenchecker.png" alt="Logo">
+        <a href="http://1fakten.ch/eck"><img src="../images/Faktenchecker.png" alt="Logo"></a>
         <h1>Faktenchecker</h1>
     </header>
     <hr>

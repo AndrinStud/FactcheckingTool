@@ -33,13 +33,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faktenchecker - Live Chat Creator</title>
     <script src="https://kit.fontawesome.com/e5010892c5.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
+    <link rel="icon" type="image/x-icon" href="../images/Faktenchecker.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/livechatcreator.css">
 </head>
 <body>
     <header>
-        <img src="../images/Faktenchecker.png" alt="Logo">
+        <a href="http://1fakten.ch/eck"><img src="../images/Faktenchecker.png" alt="Logo"></a>
         <h1>Faktenchecker</h1>
     </header>
     <hr>

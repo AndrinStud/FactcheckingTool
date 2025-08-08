@@ -32,6 +32,14 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <h2>Anderes:</h2>
+        <ul>
+            <li>
+                <a href="http://1fakten.ch/php/livechatcreator.php">
+                    Live Chat Creator
+                </a>
+            </li>
+        </ul>
     </main>
     <footer>
         <hr>
