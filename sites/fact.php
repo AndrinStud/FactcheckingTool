@@ -13,13 +13,12 @@
         header("Location: http://1fakten.ch/eck");
         exit;
     }
-    echo "Aussage: " . $fact['comment'] . "<br><br>";
 
     // Antwort
     $site_id = $fact['site'];
     $stmt = $pdo->query("SELECT f.comment, f.video_timestamp_end 
                       FROM fact f 
-                      WHERE f.site='" . $site_id . "' AND f.video_timestamp_end <= " . ($fact['video_timestamp_end'] + 2) . " AND f.id != '$id'");
+                      WHERE f.site='" . $site_id . "' AND f.video_timestamp_end = " . ($fact['video_timestamp_end'] + 2) . " AND f.id != '$id'");
     $facts = $stmt->fetchAll();
     if (empty($facts)) {
         header("Location: http://1fakten.ch/eck");
@@ -35,14 +34,14 @@
             break;
         }
         else {
+            echo "<script>console.log('Next fact found: " . $next_fact['comment'] . "');</script>";
             $facts[] = $next_fact;
         }
     }
     $facts_string = "";
-    foreach ($facts as $fact) {
-        $facts_string .= $fact['comment'] . " ";
+    for ($i = 0; $i < count($facts) - 1; $i++) {
+        $facts_string .= $facts[$i]['comment'] . " ";
     }
-    echo "Facts: " . $facts_string . "<br><br>";
 
     // Quellen
     $stmt = $pdo->query("SELECT link FROM source WHERE fact='$id'");
@@ -56,7 +55,6 @@
             $sourcesString .= "<a href='" . $source['link'] . "' target='_blank'>" . $source['link'] . "</a><br>";
         }
     }
-    echo "Quellen: " . $sourcesString;
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -75,16 +73,13 @@
     </header>
     <hr>
     <main class="videoList">
-        <h2>Geprüfte Sendungen:</h2>
-        <ul>
-            <?php foreach ($sites as $site): ?>
-                <li>
-                    <a href="http://1fakten.ch/eck-<?php echo $site['shortenend_name_url'];?>">
-                        <?php echo $site['name'] ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <h2>Faktencheck:</h2>
+        <h3>Behauptung</h3>
+        <p><?php echo $fact['comment']; ?></p>
+        <h3>Überprüfung</h3>
+        <p><?php echo $facts_string; ?></p>
+        <h3>Quellen</h3>
+        <p><?php echo $sourcesString; ?></p>
     </main>
     <footer>
         <hr>

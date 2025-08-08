@@ -61,6 +61,17 @@
         'Bei der Luftqualität ist die Aussage falsch. Die Schweiz lag laut EPI im Jahr 2024 auf Platz 17 in der Luftverschmutzung.',
         NULL, 302006
     );
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Falsch'),
+        NULL,
+        'Quellen: ',
+        NULL, 302007
+    );
+    UPDATE fact 
+    SET comment = CONCAT(comment, 'http://1fakten.ch/eck-', (SELECT id FROM fact WHERE video_timestamp_end=302000))
+    WHERE video_timestamp_end = 302007;
     INSERT INTO source (fact, link)
     VALUES(
         (SELECT id FROM fact WHERE video_timestamp_end=302000),
@@ -106,7 +117,7 @@
         (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
         (SELECT id FROM account WHERE name='Aussage'),
         (SELECT id FROM person WHERE name='Albert Rösti'),
-        'Mit dem Klima- und Innovationsgesetz, dem neuen C02-Gesetz, dem Gesetz zur Kreislaufwirtschaft und dem Gesetz zur nachhaltigen Stromversorgung werden sehr viele mit der Wirtschaft und dem technischen Fortschritt verträgliche Schritte zum Umweltschutz gemacht.',
+        'Mit dem Klima- und Innovationsgesetz, dem neuen C02-Gesetz, dem Gesetz zur Kreislaufwirtschaft und dem Gesetz zur nachhaltigen Stromversorgung wird sehr viel zum Umweltschutz gemacht.',
         684000, 720000
     );
     INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
@@ -114,9 +125,20 @@
         (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
         (SELECT id FROM account WHERE name='Information'),
         NULL,
-        'Rösti bezieht sich auf folgende Gesetze:',
+        'Rösti bezieht sich auf die in den Quellen genannte Gesetze.',
         NULL, 720002
     );
+    INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
+    VALUES(
+        (SELECT id FROM site WHERE shortenend_name_url='umweltverantwortungsinitiative'),
+        (SELECT id FROM account WHERE name='Information'),
+        NULL,
+        'Quellen: ',
+        NULL, 720003
+    );
+    UPDATE fact 
+    SET comment = CONCAT(comment, 'http://1fakten.ch/eck-', (SELECT id FROM fact WHERE video_timestamp_end=720000))
+    WHERE video_timestamp_end = 720003;
 
     INSERT INTO fact (site, account, quote_by, comment, video_timestamp_start, video_timestamp_end)
     VALUES(
