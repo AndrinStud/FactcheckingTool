@@ -46,11 +46,11 @@
         return http_post($url, $headers, $body);
     }
 
-    $heimatstadtToken = $_SESSION['access_tokens'][0];
-    $faktToken = $_SESSION['access_tokens'][1];
-    $falschinformationToken = $_SESSION['access_tokens'][2];
-    $nichtueberpruefbarToken = $_SESSION['access_tokens'][3];
-    $produktionsinformationToken = $_SESSION['access_tokens'][4];
+    $faktencheckToken = $_SESSION['access_tokens'][0];
+    $korrektToken = $_SESSION['access_tokens'][1];
+    $falschToken = $_SESSION['access_tokens'][2];
+    $aussageToken = $_SESSION['access_tokens'][3];
+    $informationToken = $_SESSION['access_tokens'][4];
 
     echo "Fakten werden aus DB geladen...<br>";
 
@@ -83,17 +83,17 @@
                 $fact = $facts[$i];
                 $comment = $fact['comment'];
                 $accessToken = null;
-                if ($fact['name'] == 'Fakt') {
-                    $accessToken = $faktToken;
+                if ($fact['name'] == 'Korrekt') {
+                    $accessToken = $korrektToken;
                 }
-                else if ($fact['name'] == 'Falschinformation') {
-                    $accessToken = $falschinformationToken;
+                else if ($fact['name'] == 'Falsch') {
+                    $accessToken = $falschToken;
                 }
-                else if ($fact['name'] == 'Nicht überprüfbar') {
-                    $accessToken = $nichtueberpruefbarToken;
+                else if ($fact['name'] == 'Aussage') {
+                    $accessToken = $aussageToken;
                 }
-                else if ($fact['name'] == 'Produktionsinformation') {
-                    $accessToken = $produktionsinformationToken;
+                else if ($fact['name'] == 'Information') {
+                    $accessToken = $informationToken;
                 }
                 if ($accessToken != null) {
                     $response = postYtLivechatComment($livechatId, $comment, $accessToken);

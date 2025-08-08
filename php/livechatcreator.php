@@ -31,24 +31,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>heim@stadt - Live Chat Creator</title>
+    <title>Faktenchecker - Live Chat Creator</title>
+    <script src="https://kit.fontawesome.com/e5010892c5.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../images/WebsiteIcon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/livechatcreator.css">
 </head>
 <body>
     <header>
-        <a href="https://heimatstadt.info/"><img src="../images/Logo_Heimatstadt.png" alt="Logo Heim@Stadt"></a>
+        <img src="../images/Faktenchecker.png" alt="Logo">
+        <h1>Faktenchecker</h1>
     </header>
+    <hr>
     <main>
-    <h1>Livechat Comment posten</h1>
-<table>
+    <h2>Livechat Comment posten</h2>
+    <table>
     <tr>
         <th>Account</th>
         <th>Access Token</th>
     </tr>
     <tr>
-        <td>heim@stadt</td>
+        <td>Faktenchecker</td>
         <td class="tokenBearer">
             <?php
                 showTokenIfExists(0);
@@ -56,7 +59,7 @@
         </td>
     </tr>
     <tr>
-        <td>Fakt</td>
+        <td>Korrekt</td>
         <td class="tokenBearer">
             <?php
                 showTokenIfExists(1);
@@ -64,7 +67,7 @@
         </td>
     </tr>
     <tr>
-        <td>Falschinformation</td>
+        <td>Falsch</td>
         <td class="tokenBearer">
             <?php
                 showTokenIfExists(2);
@@ -72,7 +75,7 @@
         </td>
     </tr>
     <tr>
-        <td>Nicht überprüfbar</td>
+        <td>Aussage</td>
         <td class="tokenBearer">
             <?php
                 showTokenIfExists(3);
@@ -80,7 +83,7 @@
         </td>
     </tr>
     <tr>
-        <td>Produktionsinformation</td>
+        <td>Information</td>
         <td class="tokenBearer">
             <?php
                 showTokenIfExists(4);
@@ -105,7 +108,10 @@ if (isset($_POST['site'])) {
 ?>
     </main>
     <footer>
-        <a class="indexButton" href="https://heimatstadt.info/">Zur Startseite</a>
+        <hr>
+        <div class="footerBottom">
+            <a href="https://github.com/AndrinStud/FactcheckingTool" target="_blank"><i class="fa-brands fa-github"></i>Factchecker-Code</a>
+        </div>
     </footer>
     <script>
     // Markiere gefüllte Tokens und bestimme Add Token Position

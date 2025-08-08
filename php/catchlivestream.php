@@ -3,7 +3,7 @@
     $dateTimeNow->format('Y-m-d H:i:s');
     $headersLmlb = [
         'Content-Type: application/json',
-        'Authorization: Bearer ' . $heimatstadtToken
+        'Authorization: Bearer ' . $faktencheckToken
     ];
     for ($i = 0; $i < 120; $i++) {
         $listMyLiveBroadcasts = http_get("https://www.googleapis.com/youtube/v3/liveBroadcasts?part=snippet&broadcastType=all&mine=true", $headersLmlb);

@@ -4,7 +4,7 @@ require_once 'config.php';
 
 $client_id = getenv('OAUTH2_CLIENTID');
 $client_secret = getenv('OAUTH2_CLIENTSECRET');
-$redirect_uri = 'https://heimatstadt.info/php/livechatcreator.php';
+$redirect_uri = 'https://1fakten.ch/php/livechatcreator.php';
 $scope = 'https://www.googleapis.com/auth/youtube';
 
 $authorization_endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';

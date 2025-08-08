@@ -1,0 +1,21 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.tokenBearer {
+    overflow-x: scroll;
+    max-width: 60vw;
+}
+
+h2 {
+    text-align: center;
+}
